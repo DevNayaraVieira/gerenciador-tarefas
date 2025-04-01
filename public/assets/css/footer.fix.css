@@ -1,0 +1,69 @@
+/* Garantir que o footer fique sempre no final da página */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1 0 auto; /* Isso faz com que o conteúdo principal cresça para preencher o espaço */
+    padding-bottom: 30px; /* Espaço extra no final para evitar que o conteúdo seja cortado */
+}
+
+footer {
+    flex-shrink: 0; /* Evita que o footer encolha */
+    position: relative; /* Garante que ele permaneça no fluxo do documento */
+    z-index: 10; /* Garante que o footer fique acima de outros elementos */
+}
+
+/* Correção para os botões de ação nas tarefas */
+.task-actions {
+    position: relative; /* Garante posicionamento correto */
+    z-index: 5; /* Eleva os botões acima de outros elementos */
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px; /* Adiciona espaço acima dos botões */
+}
+
+.btn-edit, .btn-delete {
+    position: relative; /* Necessário para z-index funcionar */
+    z-index: 6; /* Garante que os botões fiquem acima de outros elementos */
+    pointer-events: auto !important; /* Força os eventos de clique a funcionarem */
+}
+
+.task-card {
+    position: relative; /* Estabelece um contexto de empilhamento */
+    overflow: visible !important; /* Permite que os botões fiquem visíveis */
+}
+
+.delete-form {
+    margin-left: 10px;
+    position: relative; /* Necessário para z-index funcionar */
+    z-index: 6; /* Garante que o formulário fique acima de outros elementos */
+}
+
+/* Remover qualquer elemento que possa estar bloqueando os cliques */
+.task-card::before,
+.task-card::after {
+    pointer-events: none !important; /* Garante que esses elementos não bloqueiem cliques */
+}
+
+/* Garantir que a página de tarefas tenha altura mínima adequada */
+.task-container {
+    min-height: 60vh; /* Altura mínima para a seção de tarefas */
+}
+
+/* Ajustar a disposição de elementos que possam estar causando sobreposição */
+.task-body, .task-meta, .task-header {
+    pointer-events: none; /* Permitir cliques através desses elementos */
+}
+
+.task-body *, .task-meta *, .task-header * {
+    pointer-events: auto; /* Restaurar cliques em elementos filhos específicos */
+}

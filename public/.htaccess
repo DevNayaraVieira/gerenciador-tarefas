@@ -1,0 +1,39 @@
+# Enable rewrite engine
+RewriteEngine On
+
+# If the request is not for a file or directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Route all requests to index.php
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Set default character set
+AddDefaultCharset UTF-8
+
+# Disable directory listing
+Options -Indexes
+# Enable rewrite engine
+RewriteEngine On
+
+# Permitir acesso direto a arquivos físicos
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Regras específicas para favicons
+RewriteRule ^favicon\.ico$ /img/favicon.ico [L]
+RewriteRule ^img/favicon\.svg$ - [L]
+
+# Route all other requests to index.php
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Set default character set
+AddDefaultCharset UTF-8
+
+# Disable directory listing
+Options -Indexes
+
+# Permitir tipos MIME para favicon
+AddType image/svg+xml .svg
+AddType image/x-icon .ico
