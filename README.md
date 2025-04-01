@@ -1,112 +1,82 @@
-# Simple PHP Fullstack Application
+# Gerenciador de Tarefas em PHP 8.4
 
-A minimalist fullstack application built with PHP, MariaDB, and Docker. This project implements a simple task management system with basic CRUD operations.
+![Gerenciador de Tarefas em ação](public/assets/img/tarefas.gif)
 
-## Project Structure
+Um gerenciador de tarefas minimalista e elegante desenvolvido com PHP 8.4, MariaDB e Docker. Este projeto implementa um sistema simples de gerenciamento de tarefas com operações CRUD básicas.
 
-```
-simple-php-app/
-├── docker/
-│   ├── mariadb/
-│   │   └── init.sql
-│   └── php/
-│       └── Dockerfile
-├── public/
-│   ├── index.php
-│   ├── assets/
-│   │   ├── css/
-│   │   │   └── style.css
-│   │   └── js/
-│   │       └── main.js
-│   └── .htaccess
-├── src/
-│   ├── Controllers/
-│   │   ├── HomeController.php
-│   │   └── TaskController.php
-│   ├── Models/
-│   │   └── Task.php
-│   ├── Views/
-│   │   ├── home.php
-│   │   ├── tasks.php
-│   │   └── layout.php
-│   └── Database.php
-├── docker-compose.yml
-├── .env
-└── README.md
-```
+🚀 Stack Técnica
 
-## Technical Stack
+PHP 8.4: Linguagem de programação backend com tipagem forte
+MariaDB 10.6: Banco de dados relacional
+Apache: Servidor web com mod_rewrite
+Docker: Containerização
+Tabler.io: Template administrativo com Bootstrap 5
+jQuery 3: Biblioteca JavaScript para interações no frontend
+Composer 2: Gerenciador de dependências do PHP
+Portainer: Gerenciamento de stacks Docker
+Traefik: Gerenciamento de acessos
 
-- **PHP 8.1**: Backend programming language
-- **MariaDB 10.6**: Relational database
-- **Apache**: Web server with mod_rewrite
-- **Docker**: Containerization
+✨ Recursos
 
-## Features
+🏗️ Arquitetura MVC simplificada
+📝 Gerenciamento de Tarefas (Criar, Ler, Atualizar, Excluir)
+📱 Design Responsivo
+🐳 Containerização com Docker para fácil setup
+💉 Injeção de Dependência
+🚨 Tratamento de Erros com Exceções
+🔒 Prepared Statements para segurança
+🔑 Autenticação com Session segura
+🗄️ Migrations para gerenciamento do banco
 
-- Simple MVC architecture
-- Task management (Create, Read, Update, Delete)
-- Responsive design
-- Docker containerization for easy setup
+📋 Pré-requisitos
 
-## Prerequisites
+Docker e Docker Compose instalados
+Git (opcional para clonagem)
 
-- Docker and Docker Compose installed
-- Git (optional for cloning)
+🔧 Instalação e Configuração
 
-## Installation and Setup
+Clone ou baixe este repositório:
+bashCopiargit clone https://github.com/seu-usuario/gerenciador-tarefas.git
+cd gerenciador-tarefas
 
-1. Clone or download this repository:
+(Opcional) Modifique o arquivo .env para definir credenciais personalizadas do banco de dados.
+Inicie os containers Docker:
+bashCopiardocker-compose up -d
 
-```bash
-git clone <repository-url>
-cd simple-php-app
-```
+Acesse a aplicação:
 
-2. (Optional) Modify the `.env` file to set custom database credentials.
+Abra seu navegador e navegue para http://localhost:8081
 
-3. Start the Docker containers:
 
-```bash
-docker-compose up -d
-```
 
-4. Access the application:
-   - Open your browser and navigate to [http://localhost:8080](http://localhost:8080)
+💻 Uso
 
-## Usage
+🏠 Navegue até a página inicial para ver a visão geral da aplicação
+📝 Clique em "Tarefas" para gerenciar suas tarefas
+➕ Adicione novas tarefas usando o formulário
+✏️ Edite ou exclua tarefas existentes
 
-- Navigate to the home page to see the application overview
-- Click on "Tasks" to manage your tasks
-- Add new tasks using the form
-- Edit or delete existing tasks
+🎨 Personalização
 
-## Customization
+🎨 Estilo: Modifique public/assets/css/style.css para alterar a aparência
+🗄️ Banco de Dados: Edite docker/mariadb/init.sql para modificar o schema do banco
+🧩 Lógica: Atualize os controllers e models no diretório src
 
-- **Styling**: Modify `public/assets/css/style.css` to change the appearance
-- **Database**: Edit `docker/mariadb/init.sql` to modify the database schema
-- **Logic**: Update the controllers and models in the `src` directory
+🔍 Solução de Problemas
 
-## Troubleshooting
+Se você encontrar problemas de permissão, execute:
+bashCopiardocker-compose exec php chown -R www-data:www-data /var/www/html
 
-- If you encounter permission issues, run:
-  ```bash
-  docker-compose exec php chown -R www-data:www-data /var/www/html
-  ```
+Para visualizar logs:
+bashCopiardocker-compose logs php
 
-- To view logs:
-  ```bash
-  docker-compose logs php
-  ```
 
-## License
+📄 Licença
+Este projeto está disponível sob a Licença MIT.
 
-This project is available under the MIT License.
+👩‍💻 Autora
+Nayara Vieira
 
-## Author
+Este projeto foi criado como um exemplo simples de uma aplicação fullstack em PHP 8.4. Tem por objetivo ser educacional e servir como ponto de partida para aplicações mais complexas.
 
-Your Name
-
----
-
-This project is created as a simple example of a PHP fullstack application. It's meant for educational purposes and as a starting point for more complex applications.
+Portfólio: https://portfolio-devnayaravieira.netlify.app
